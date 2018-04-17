@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Components
-import Search from '../Search/Search';
+import Github from '../Github/Github';
 import Map from '../Map/Map';
+import Search from '../Search/Search';
 
 class App extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class App extends Component {
         <h2>Consulta de endereço</h2>
         <Search cep={this.state.cep} onSubmit={this.onSubmit} onChange={this.onChangeCEP}/>
         <Map infosCep={this.state.infosCep}/>
+        <Github />
       </div>
     );
   }
