@@ -1,0 +1,33 @@
+.c-map {
+  border: 2px solid #ededed;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.c-map__info {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.c-map__title {
+  margin: 0 0 10px;
+}
+
+.c-map__embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.c-map__embed iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}

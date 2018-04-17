@@ -1,5 +1,6 @@
 import React from 'react';
 import MaskedInput from 'react-maskedinput';
+import './Search.css';
 
 export default props => {
   const keyHandler = (e) => {
@@ -10,15 +11,20 @@ export default props => {
 
   return (
     <div className="c-search">
-      <label>CEP</label>
-      <MaskedInput
-        type="text"
-        mask="11111-111"
-        value={props.cep}
-        onChange={props.onChange}
-        onKeyUp={keyHandler}
-      />
-      <button onClick={props.onSubmit}>Buscar</button>
+      <h3 className="c-search__title">Consultar</h3>
+      <div className="c-search__container">
+        <label className="c-search__cep">CEP</label>
+        <MaskedInput
+          mask="11111-111"
+          value={props.cep}
+          onChange={props.onChange}
+          onKeyUp={keyHandler}
+          type="text"
+        />
+        <button 
+          className="c-search__button"
+          onClick={props.onSubmit}>Buscar</button>
+      </div>
     </div>
   )
 }
