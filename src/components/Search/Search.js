@@ -3,15 +3,19 @@ import MaskedInput from 'react-maskedinput';
 import './Search.css';
 
 export default props => {
+  const search = () => {
+    props.onSubmit();
+    props.isShow(true);
+  }
+  
   const keyHandler = (e) => {
     if (e.key === 'Enter') {
-      props.onSubmit();
+      search();
     }
   }
 
   return (
     <div className="c-search">
-      <h3 className="c-search__title">Consultar</h3>
       <div className="c-search__container">
         <label className="c-search__cep">CEP</label>
         <MaskedInput
@@ -23,8 +27,10 @@ export default props => {
         />
         <button 
           className="c-search__button"
-          onClick={props.onSubmit}>Buscar</button>
+          onClick={search}
+          title="Buscar">Buscar</button>
       </div>
+      <label className={props.error ? 'c-search__error': 'is-hidden'}>Preencha um CEP válido</label>
     </div>
   )
 }

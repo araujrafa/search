@@ -4,6 +4,13 @@
   margin-top: 5px;
 }
 
+.c-map__close {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  float: right;
+}
+
 .c-map__info {
   font-size: 14px;
   margin: 0 0 8px;
@@ -30,4 +37,9 @@
   right: 0;
   height: 100%;
   width: 100%;
+}
+
+.is-hidden {
+  /* display: none; */
+  visibility: hidden;
 }
