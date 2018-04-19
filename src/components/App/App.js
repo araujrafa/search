@@ -15,7 +15,6 @@ class App extends Component {
       show: false,
       error: false,
     }
-    this.isError = this.isError.bind(this);
     this.isShow = this.isShow.bind(this);
     this.onChangeCEP = this.onChangeCEP.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -26,13 +25,15 @@ class App extends Component {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then(response => response.json())
       .then(infosCep => {
-        console.log(infosCep)
         if (infosCep.erro) {
           this.setState({...this.state, show: false, error: true })    
         } else {
-          this.setState({...this.state, infosCep, error: false})
+          this.setState({...this.state, infosCep, show: true, error: false})
         }
       })
+      .catch(() => {
+        this.setState({...this.state, show: false, error: true })
+      });
   }
 
   onChangeCEP(e) {
@@ -49,13 +50,6 @@ class App extends Component {
     });
   }
 
-  isError(flag) {
-    this.setState({
-      ...this.state,
-      error: flag,
-    });
-  }
-
   render() {
     return (
       <div className="App">
@@ -66,7 +60,6 @@ class App extends Component {
           onChange={this.onChangeCEP}
           isShow={this.isShow}
           isError={this.isError}
-          error={this.state.error}
           />
         <Map infosCep={this.state.infosCep} show={this.state.show} isShow={this.isShow}/>
         <Github />
