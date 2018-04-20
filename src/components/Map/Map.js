@@ -7,7 +7,7 @@ export default ({ infosCep, show, isShow }) => {
   }
 
   return (
-    <div className={show ? 'c-map' : 'is-hidden'}>
+    <div name="Map" className={show ? 'c-map' : 'is-hidden'}>
       <button 
         className="c-map__close"
         title="Fechar"
@@ -16,9 +16,9 @@ export default ({ infosCep, show, isShow }) => {
       </button>
       <h3 className="c-search__title">Consultar</h3>
       <h3 className="c-map__title">{infosCep.logradouro}</h3>
-      <p className="c-map__info">{infosCep.bairro}</p>
-      <p className="c-map__info">{infosCep.uf ? `${infosCep.localidade} - ${infosCep.uf}` : infosCep.localidade}</p>
-      <p className="c-map__info">{infosCep.cep}</p>
+      <p className="c-map__info c-map__info" name="district">{infosCep.bairro}</p>
+      <p className="c-map__info c-map__info" name="city">{infosCep.uf ? `${infosCep.localidade} - ${infosCep.uf}` : infosCep.localidade}</p>
+      <p className="c-map__info" name="cep">{infosCep.cep}</p>
       <div className="c-map__embed">
         <iframe
           title="GoogleMaps"
