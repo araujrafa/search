@@ -7,8 +7,13 @@ export default ({ infosCep, show, isShow }) => {
   }
 
   return (
-    <div className={show ? 'c-map' : 'c-map is-hidden'}>
-      <button className="c-map__close" title="Fechar" onClick={onClose}>X</button>
+    <div className={show ? 'c-map' : 'is-hidden'}>
+      <button 
+        className="c-map__close"
+        title="Fechar"
+        onClick={onClose}>
+          X
+      </button>
       <h3 className="c-search__title">Consultar</h3>
       <h3 className="c-map__title">{infosCep.logradouro}</h3>
       <p className="c-map__info">{infosCep.bairro}</p>

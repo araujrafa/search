@@ -58,8 +58,7 @@ class App extends Component {
           cep={this.state.cep}
           onSubmit={this.onSubmit}
           onChange={this.onChangeCEP}
-          isShow={this.isShow}
-          isError={this.isError}
+          error={this.error}
           />
         <Map infosCep={this.state.infosCep} show={this.state.show} isShow={this.isShow}/>
         <Github />

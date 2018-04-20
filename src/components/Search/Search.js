@@ -12,7 +12,7 @@ export default props => {
   return (
     <div className="c-search">
       <div className="c-search__container">
-        <label className="c-search__cep">CEP</label>
+        <p className="c-search__cep">CEP</p>
         <MaskedInput
           mask="11111-111"
           value={props.cep}
