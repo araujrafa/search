@@ -54,13 +54,19 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Consulta de endereço</h2>
-        <Search 
+        <Search
+          name="Search"
           cep={this.state.cep}
           onSubmit={this.onSubmit}
           onChange={this.onChangeCEP}
-          error={this.error}
+          error={this.state.error}
           />
-        <Map infosCep={this.state.infosCep} show={this.state.show} isShow={this.isShow}/>
+        <Map 
+          name="Map"
+          infosCep={this.state.infosCep}
+          show={this.state.show}
+          isShow={this.isShow}
+          />
         <Github />
       </div>
     );

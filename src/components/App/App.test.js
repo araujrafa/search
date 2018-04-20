@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from './App.js';
-import Search from '../Search/Search';
 
 describe('<App />', () => {
   let component;
-  let search;
+  let Search;
+  let Map;
 
   beforeEach(() => {
     component = shallow(<App />);
 
-    search = component.find('Search');
-    console.log(search)
+    Search = component.findWhere(node => node.prop('name') === 'Search');
+    Map = component.findWhere(node => node.prop('name') === 'Map');
   });
 
   test('Should have state default', () => {
@@ -22,12 +22,41 @@ describe('<App />', () => {
   });
 
   test('Should have component Search', () => {
-    expect(search.length).toBe(1);
+    expect(Search.length).toBe(1);
   });
 
   test('Should change prop cep in Search', () => {
     component.setState({ cep: '08430-180' });
-    console.log(component.state('cep'))
-    expect(search.prop('cep')).toBe('08430-180');
+    Search = component.findWhere(node => node.prop('name') === 'Search');
+    expect(Search.prop('cep')).toBe('08430-180');
   });
+
+  test('Should change prop error in Search', () => {
+    component.setState({ error: true });
+    Search = component.findWhere(node => node.prop('name') === 'Search');
+    expect(Search.prop('error')).toBe(true);
+  });
+
+  test('Should change cep', () => {
+    const e = {
+      target: {
+        value: '08421-151'
+      }
+    }
+    const onChange = Search.prop('onChange');
+    onChange(e);
+    expect(component.state('cep')).toBe('08421-151');
+  });
+
+  test('Should change prop show in Map', () => {
+    component.setState({ show: true });
+    Map = component.findWhere(node => node.prop('name') === 'Map');
+    expect(Map.prop('show')).toBe(true);
+  });
+
+  test('Should change show', () => {
+    const isShow = Map.prop('isShow');
+    isShow(true);
+    expect(component.state('show')).toBe(true);
+  })
 });

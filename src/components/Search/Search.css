@@ -1,6 +1,6 @@
 .c-search {
   background-color: #ededed;
-  height: 40px;
+  height: 45px;
   padding: 20px;
 }
 
@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
   width: 220px;
 }
 
